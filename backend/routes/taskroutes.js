@@ -23,8 +23,5 @@ router.get("/:id", authmiddleware, getTaskById);
 router.put("/:id",authmiddleware,updateTask);
 
 router.delete("/:id",authmiddleware,deleteTask);
-router.get("/test", (req, res) => {
-  res.send("Tasks Route Working");
-});
 
 module.exports=router;

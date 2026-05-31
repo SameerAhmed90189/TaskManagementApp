@@ -11,6 +11,7 @@ module.exports=(req,res,next)=>{
             }
         const token =authheader.split(" ")[1];
         const decoded=jwt.verify(token,process.env.jwt_key);
+        
         req.user=decoded;
         next();
 
