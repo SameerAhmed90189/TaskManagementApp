@@ -1,0 +1,53 @@
+.formCard {
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  border: 1px solid #e5e7eb;
+
+}
+
+.form {
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.input,
+.textarea,
+.select {
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  border: 1px solid #d1d5db;
+
+}
+
+.submitBtn {
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+}
+
+.submitBtn:hover {
+
+  background: #1d4ed8;
+
+}
