@@ -117,11 +117,17 @@ function Dashboard() {
       .filter((task) => {
 
         const matchesSearch =
-          task.title
-            .toLowerCase()
-            .includes(
-              search.toLowerCase()
-            );
+  task.title
+    .toLowerCase()
+    .includes(search.toLowerCase()) ||
+
+  task.description
+    .toLowerCase()
+    .includes(search.toLowerCase()) ||
+
+  task.status
+    .toLowerCase()
+    .includes(search.toLowerCase());
 
         const matchesFilter =
           filter === "All"

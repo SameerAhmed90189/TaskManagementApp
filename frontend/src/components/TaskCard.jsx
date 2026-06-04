@@ -18,7 +18,17 @@ return (
         <p className="description">
           {task.description}
         </p>
+        <p className="due-date">
+           Due:
+                {
+                     task.dueDate
+                    ? new Date(task.dueDate)
+                    .toLocaleDateString()
+                     : " No due date"
+                  }
+            </p>
       </div>
+
 
       <span
         className={`status ${

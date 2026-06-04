@@ -14,6 +14,7 @@ function TaskForm({
       title: "",
       description: "",
       status: "Pending",
+      dueDate:""
     });
 
   useEffect(() => {
@@ -26,6 +27,9 @@ function TaskForm({
           editingTask.description,
         status:
           editingTask.status,
+           dueDate: editingTask.dueDate
+    ? editingTask.dueDate.split("T")[0]
+    : ""
       });
     }
          else {
@@ -96,6 +100,13 @@ function TaskForm({
         value={formData.description}
         onChange={handleChange}
       />
+      <input
+  className="input"
+  type="date"
+  name="dueDate"
+  value={formData.dueDate}
+  onChange={handleChange}
+/>
 
       <select
         className="select"
