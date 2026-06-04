@@ -1,38 +1,49 @@
+import "../styles/TaskCard.css";
 function TaskCard({
   task,
   onEdit,
   onDelete,
 }) {
 
-  return (
-    <div>
+return (
+  <div className="card">
 
-      <h3>
-        {task.title}
-      </h3>
+    <div className="taskInfo">
 
-      <p>
-        {task.description}
-      </p>
+      <div className="textContent">
+        <h3 className="title">
+          {task.title}
+        </h3>
 
-      <span>
+        <p className="description">
+          {task.description}
+        </p>
+      </div>
+
+      <span
+        className={`status ${
+          task.status === "Completed"
+            ? "completed"
+            : task.status === "In Progress"
+            ? "progress"
+            : "pending"
+        }`}
+      >
         {task.status}
       </span>
 
-      <div>
+      <div className="actions">
 
         <button
-          onClick={() =>
-            onEdit(task)
-          }
+          className="editBtn"
+          onClick={() => onEdit(task)}
         >
           Edit
         </button>
 
         <button
-          onClick={() =>
-            onDelete(task._id)
-          }
+          className="deleteBtn"
+          onClick={() => onDelete(task._id)}
         >
           Delete
         </button>
@@ -40,7 +51,9 @@ function TaskCard({
       </div>
 
     </div>
-  );
+
+  </div>
+);
 }
 
 export default TaskCard;

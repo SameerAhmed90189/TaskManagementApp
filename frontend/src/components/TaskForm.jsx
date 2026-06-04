@@ -2,6 +2,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import "../styles/TaskForm.css";
 
 function TaskForm({
   onSubmit,
@@ -65,11 +66,12 @@ function TaskForm({
 
   };
 
-  return (
+ return (
+  <div className="formCard">
+
     <form
-      onSubmit={
-        handleSubmit
-      }
+      className="form"
+      onSubmit={handleSubmit}
     >
 
       <h2>
@@ -79,36 +81,27 @@ function TaskForm({
       </h2>
 
       <input
+        className="input"
         type="text"
         name="title"
         placeholder="Enter task title"
-        value={
-          formData.title
-        }
-        onChange={
-          handleChange
-        }
+        value={formData.title}
+        onChange={handleChange}
       />
 
       <textarea
+        className="textarea"
         name="description"
         placeholder="Enter task description"
-        value={
-          formData.description
-        }
-        onChange={
-          handleChange
-        }
+        value={formData.description}
+        onChange={handleChange}
       />
 
       <select
+        className="select"
         name="status"
-        value={
-          formData.status
-        }
-        onChange={
-          handleChange
-        }
+        value={formData.status}
+        onChange={handleChange}
       >
         <option value="Pending">
           Pending
@@ -125,6 +118,7 @@ function TaskForm({
       </select>
 
       <button
+        className="submitBtn"
         type="submit"
       >
         {editingTask
@@ -133,7 +127,9 @@ function TaskForm({
       </button>
 
     </form>
-  );
+
+  </div>
+);
 }
 
 export default TaskForm;

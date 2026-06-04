@@ -1,32 +1,38 @@
 import SearchBar from "./SearchBar";
+import "../styles/Navbar.css";
 
 function Navbar({
   search,
   setSearch,
   handleLogout,
 }) {
-  return (
-    <nav>
+  return(
+  <nav className="navbar">
 
-      <div>
-        <h1>Task Manager</h1>
-      </div>
+  <div>
+    <h1 className="logo">
+      Task Manager
+    </h1>
+  </div>
 
-      <div>
+  <div className="right">
 
-        <SearchBar
-          search={search}
-          setSearch={setSearch}
-        />
+    <SearchBar
+      search={search}
+      setSearch={setSearch}
+    />
 
-        <button onClick={handleLogout}>
-          Logout
-        </button>
+    <button
+      className="logoutBtn"
+      onClick={handleLogout}
+    >
+      Logout
+    </button>
 
-      </div>
+  </div>
 
-    </nav>
-  );
+</nav>
+  )
 }
 
 export default Navbar;

@@ -1,9 +1,12 @@
 import TaskCard from "./TaskCard";
+import "../styles/TaskList.css";
 
 function TaskList({
   tasks,
   onEdit,
   onDelete,
+  filter,
+  setFilter
 }) {
 
   if (tasks.length === 0) {
@@ -14,26 +17,57 @@ function TaskList({
     );
   }
 
-  return (
-    <div>
+return (
+ <div className="tasklist-container">
 
-      <h2>
-        Tasks
-        {" "}
-        ({tasks.length})
-      </h2>
+  <div className="tasklist-header">
 
-      {tasks.map((task) => (
-        <TaskCard
-          key={task._id}
-          task={task}
-          onEdit={onEdit}
-          onDelete={onDelete}
-        />
-      ))}
+    <h2 className="tasklist-heading">
+      Tasks ({tasks.length})
+    </h2>
 
-    </div>
-  );
+    <select
+      className="tasklist-filter"
+      value={filter}
+      onChange={(e) =>
+        setFilter(e.target.value)
+      }
+    >
+      <option value="All">
+        All Status
+      </option>
+
+      <option value="Pending">
+        Pending
+      </option>
+
+      <option value="In Progress">
+        In Progress
+      </option>
+
+      <option value="Completed">
+        Completed
+      </option>
+
+    </select>
+
+  </div>
+
+  <div className="task-list-scroll">
+
+    {tasks.map((task) => (
+      <TaskCard
+        key={task._id}
+        task={task}
+        onEdit={onEdit}
+        onDelete={onDelete}
+      />
+    ))}
+
+  </div>
+
+</div>
+);
 }
 
 export default TaskList;

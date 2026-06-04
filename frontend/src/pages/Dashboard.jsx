@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 import Navbar from "../components/Navbar";
-import FilterBar from "../components/FilterBar";
 import ProgressBar from "../components/ProgressBar";
 import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
@@ -23,8 +22,7 @@ function Dashboard() {
   const [filter, setFilter] =
     useState("All");
 
-  const [sort, setSort] =
-    useState("Newest");
+ 
 
   const [editingTask,
     setEditingTask] =
@@ -161,23 +159,16 @@ function Dashboard() {
         />
       </div>
 
-      <div className="dashboard-filter">
-        <FilterBar
-          filter={filter}
-          setFilter={setFilter}
-          sort={sort}
-          setSort={setSort}
-        />
-      </div>
-
       <div className="dashboard-main">
 
         <div className="dashboard-tasklist">
-          <TaskList
-            tasks={filteredTasks}
-            onEdit={setEditingTask}
-            onDelete={handleDelete}
-          />
+         <TaskList
+             tasks={filteredTasks}
+              onEdit={setEditingTask}
+                  onDelete={handleDelete}
+                   filter={filter}
+  setFilter={setFilter}
+/>
         </div>
 
         <div className="dashboard-taskform">

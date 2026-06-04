@@ -1,3 +1,4 @@
+import "../styles/ProgressBar.css";
 function ProgressBar({
   completedTasks,
   totalTasks,
@@ -12,27 +13,23 @@ function ProgressBar({
         ) * 100;
 
   return (
-    <div>
+  <div className="container">
 
-      <h3>
-        Progress:
-        {" "}
-        {Math.round(percentage)}
-        %
-      </h3>
+    <h3>
+      Progress: {Math.round(percentage)}%
+    </h3>
 
-      <div>
+    <div className="track">
 
-        <div
-          style={{
-            width: `${percentage}%`,
-          }}
-        />
-
-      </div>
-
+      <div
+        className="fill"
+        style={{
+          width: `${percentage}%`,
+        }}
+      />
     </div>
-  );
+  </div>
+);
 }
 
 export default ProgressBar;

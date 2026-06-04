@@ -1,8 +1,11 @@
+import "../styles/SearchBar.css";
 function SearchBar({
   search,
   setSearch,
 }) {
   return (
+  <div className="search-bar">
+
     <input
       type="text"
       placeholder="Search tasks..."
@@ -11,7 +14,9 @@ function SearchBar({
         setSearch(e.target.value)
       }
     />
-  );
+
+  </div>
+);
 }
 
 export default SearchBar;
