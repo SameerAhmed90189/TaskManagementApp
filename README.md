@@ -158,14 +158,11 @@ npm test
 ## 📝 Scripts
 
 ### Backend Scripts
-- `npm start` - Start production server
-- `npm run dev` - Start development server with hot reload
+- `node server.js` Starts the Backend 
 - `npm test` - Run test suite
 
 ### Frontend Scripts
 - `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
 - `npm test` - Run test suite
 
 ## 🔐 Security Features
@@ -183,6 +180,7 @@ The frontend uses:
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **React Router** - Smooth client-side navigation
 - **Axios** - Efficient API communication with interceptors
+- `**Cross Platform**` - Optimized for both Mobile and Laptop
 
 ## 📚 Tech Stack Summary
 
