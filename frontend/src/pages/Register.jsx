@@ -4,6 +4,7 @@ import api from "../services/api";
 import "../styles/Auth.css";
 
 function Register() {
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -23,25 +24,26 @@ function Register() {
 
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  try {
+    setError("");
 
-    try {
+    await api.post("/auth/register", formData);
 
-      await api.post(
-        "/auth/register",
-        formData
-      );
+    navigate("/");
 
-      navigate("/");
+  } catch (err) {
 
-    } catch (error) {
+    setError(
+      err.response?.data?.message ||
+      "Something went wrong"
+    );
 
-      console.error(error);
-
-    }
-  };
+    console.error(err);
+  }
+};
 
  return (
   <div className="auth-container">
@@ -74,6 +76,11 @@ function Register() {
           value={formData.password}
           onChange={handleChange}
         />
+        {error && (
+            <p className="error-message">
+            {error}
+            </p>
+           )}
 
         <button
           className="auth-button"

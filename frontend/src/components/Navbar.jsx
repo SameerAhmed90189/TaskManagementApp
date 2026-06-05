@@ -5,6 +5,7 @@ function Navbar({
   search,
   setSearch,
   handleLogout,
+  setFilter,
 }) {
   return(
   <nav className="navbar">
@@ -20,6 +21,7 @@ function Navbar({
     <SearchBar
       search={search}
       setSearch={setSearch}
+      setFilter={setFilter}
     />
 
     <button

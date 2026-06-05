@@ -6,15 +6,46 @@ function TaskList({
   onEdit,
   onDelete,
   filter,
-  setFilter
+  setFilter,
+  setSearch
+  
 }) {
 
   if (tasks.length === 0) {
     return (
-      <h3>
+      <div className="empty-state">
+        <h3>
         No Tasks Found
-      </h3>
-    );
+        </h3>
+        <select
+          className="tasklist-filter"
+        value={filter}
+         onChange={(e) =>
+         {
+        setFilter(e.target.value);
+        setSearch("")
+      }}
+     >
+      <option value="All">
+        All Status
+      </option>
+
+      <option value="Pending">
+        Pending
+      </option>
+
+      <option value="In Progress">
+        In Progress
+      </option>
+
+      <option value="Completed">
+        Completed
+      </option>
+
+    </select>
+   
+    </div>
+     );
   }
 
 return (
@@ -29,9 +60,10 @@ return (
     <select
       className="tasklist-filter"
       value={filter}
-      onChange={(e) =>
-        setFilter(e.target.value)
-      }
+      onChange={(e) =>{
+        setFilter(e.target.value);
+        setSearch("");
+      }}
     >
       <option value="All">
         All Status

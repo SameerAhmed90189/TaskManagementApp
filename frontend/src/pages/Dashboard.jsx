@@ -154,6 +154,7 @@ function Dashboard() {
       search={search}
       setSearch={setSearch}
       handleLogout={handleLogout}
+      setFilter={setFilter}
     />
 
     <div className="dashboard-content">
@@ -173,8 +174,9 @@ function Dashboard() {
               onEdit={setEditingTask}
                   onDelete={handleDelete}
                    filter={filter}
-  setFilter={setFilter}
-/>
+                 setFilter={setFilter}
+                 setSearch={setSearch}
+               />
         </div>
 
         <div className="dashboard-taskform">

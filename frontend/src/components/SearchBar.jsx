@@ -2,6 +2,7 @@ import "../styles/SearchBar.css";
 function SearchBar({
   search,
   setSearch,
+  setFilter,
 }) {
   return (
   <div className="search-bar">
@@ -10,9 +11,10 @@ function SearchBar({
       type="text"
       placeholder="Search tasks..."
       value={search}
-      onChange={(e) =>
-        setSearch(e.target.value)
-      }
+      onChange={(e) =>{
+        setSearch(e.target.value);
+        setFilter("All");
+      }}
     />
 
   </div>
