@@ -7,6 +7,9 @@ const morgan = require("morgan");
 
 const authroutes = require("./routes/authroutes");
 const taskRoutes = require("./routes/taskroutes");
+const notificationRoutes = require("./routes/notificationroutes");
+const collaborationRoutes = require("./routes/collaborationroutes");
+const analyticsRoutes = require("./routes/analyticsroutes");
 
 const notFound = require("./middleware/notfoundmiddleware");
 const errorHandler = require("./middleware/errormiddleware");
@@ -25,6 +28,9 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authroutes);
 app.use("/tasks", taskRoutes);
+app.use("/notifications", notificationRoutes);
+app.use("/collaborate", collaborationRoutes);
+app.use("/analytics", analyticsRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
