@@ -1,21 +1,10 @@
-exports.getTrends =
-async(req,res)=>{
+const express = require("express");
+const router = express.Router();
 
-const trends =
-await Task.aggregate([
-{
-$group:{
-_id:{
-month:{
-$month:"$createdAt"
-}
-},
-count:{
-$sum:1
-}
-}
-}
-]);
+const auth = require("../middleware/authmiddleware");
+const { getOverview, getTrends } = require("../controllers/analyticscontroller");
 
-res.json(trends);
-};
+router.get("/overview", auth, getOverview);
+router.get("/trends", auth, getTrends);
+
+module.exports = router;

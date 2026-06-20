@@ -55,6 +55,11 @@
   background: #1d4ed8;
 }
 
+.attachmentCount {
+  color: #475569;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 768px) {
   .formCard {
     padding: 20px;

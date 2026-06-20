@@ -13,6 +13,10 @@ describe("Auth Routes", () => {
   beforeAll(async () => {
   await connectDB();
 
+  await User.deleteOne({
+    email: "test@test.com"
+  });
+
   const hashedPassword =
     await bcrypt.hash("password123", 10);
 
@@ -32,6 +36,13 @@ describe("Auth Routes", () => {
 
     expect(response.statusCode).toBe(200);
 
+  });
+
+  afterAll(async () => {
+    await User.deleteOne({
+      email: "test@test.com"
+    });
+    await mongoose.connection.close();
   });
 
 });

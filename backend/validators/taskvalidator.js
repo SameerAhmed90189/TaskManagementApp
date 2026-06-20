@@ -7,6 +7,6 @@ exports.createTaskValidator=[
 
     body("status")
     .optional()
-    .isIn(["Pending","In progress","Completed"])
+    .isIn(["Pending","In Progress","Completed"])
     .withMessage("Invalid status")
 ];

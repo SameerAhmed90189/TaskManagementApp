@@ -2,6 +2,53 @@
 { min-height: 100vh;
    background: #f8fafc;
    }
+.dark-mode {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.dark-mode .card,
+.dark-mode .formCard,
+.dark-mode .notification-sidebar {
+  background: #111827;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+.dark-mode .title,
+.dark-mode .form h2 {
+  color: #f8fafc;
+}
+
+.dark-mode .description,
+.dark-mode .due-date,
+.dark-mode .attachmentCount {
+  color: #cbd5e1;
+}
+
+.notification-sidebar {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-top: 16px;
+  padding: 18px;
+}
+
+.notification-sidebar h3 {
+  margin-bottom: 12px;
+}
+
+.notification-item {
+  border-top: 1px solid #e5e7eb;
+  padding: 10px 0;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.notification-empty {
+  color: #64748b;
+  font-size: 0.9rem;
+}
  .dashboard-content 
  { 
   padding: 24px;

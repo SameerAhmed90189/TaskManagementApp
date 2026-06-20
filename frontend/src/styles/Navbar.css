@@ -37,7 +37,36 @@
 .logoutBtn:hover {
   background: #dc2626;
 }
- @media (max-width: 600px)
-      { .logo
-        { font-size: 16px; }
-       }
+
+.navLink,
+.themeBtn {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.navLink:hover,
+.themeBtn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    padding: 16px;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .right {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

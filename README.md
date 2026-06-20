@@ -1,220 +1,132 @@
 # TaskManagementApp
 
-A comprehensive full-stack task management application built as part of a Developer Hubs internship project. This application enables users to create, manage, and organize tasks with authentication and security features.
+A full-stack task management app built with React, Express, MongoDB, JWT authentication, task collaboration, notifications, analytics, dark mode, and task attachments.
 
-## 📋 Project Overview
+## Features
 
-TaskManagementApp is a modern web application designed to help users efficiently manage their tasks. The application follows a client-server architecture with a React-based frontend and Node.js/Express backend, with MongoDB as the database.
+- User registration and login with JWT
+- Create, read, update, and delete tasks
+- Task fields: title, description, status, due date, owner, shared users, and attachments
+- Search and status filters
+- Completed-task progress indicator
+- Share tasks with another user using view or edit permissions
+- Real-time notifications with Socket.IO
+- Notification history sidebar
+- Analytics dashboard with task summary and monthly trends
+- Dark mode toggle
+- Basic frontend and backend tests
 
-## 🏗️ Architecture
+## Tech Stack
 
-The project is organized into two main directories:
+- Frontend: React, Vite, React Router, Axios, Recharts, Socket.IO Client
+- Backend: Node.js, Express, MongoDB, Mongoose, Socket.IO
+- Auth: JWT, bcryptjs
+- Testing: Jest, Supertest, Vitest, React Testing Library
 
-### **Backend** (`/backend`)
-A Node.js/Express REST API server providing authentication and task management endpoints.
+## Project Structure
 
-**Key Technologies:**
-- **Express.js** - Web framework for Node.js
-- **MongoDB** - NoSQL database with Mongoose ODM
-- **JWT** - JSON Web Tokens for authentication
-- **bcryptjs** - Password hashing and encryption
-- **Helmet** - HTTP security middleware
-- **CORS** - Cross-Origin Resource Sharing support
-- **Morgan** - HTTP request logging
+```text
+TaskManagementApp/
+  backend/
+    config/
+    controllers/
+    middleware/
+    models/
+    routes/
+    tests/
+    validators/
+    app.js
+    server.js
+  frontend/
+    src/
+      components/
+      pages/
+      services/
+      styles/
+```
 
-**Core Features:**
-- User authentication (registration & login)
-- Task CRUD operations
-- Input validation
-- Error handling middleware
-- Security best practices with Helmet
-
-### **Frontend** (`/frontend`)
-A React application providing a modern, responsive user interface.
-
-**Key Technologies:**
-- **React 19** - UI framework
-- **Vite** - Build tool and development server
-- **React Router** - Client-side routing
-- **Axios** - HTTP client for API communication
-- **Tailwind CSS** - Utility-first CSS framework
-- **ESLint** - Code quality and style enforcement
-
-**Core Features:**
-- User authentication pages
-- Task dashboard and management interface
-- Real-time API integration
-- Responsive design
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-- MongoDB instance (local or cloud)
-
-### Backend Setup
+## Backend Setup
 
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file in the backend directory:
+Create `backend/.env`:
+
 ```env
 PORT=5000
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-NODE_ENV=development
+Mongo_URI=your_mongodb_connection_string
+jwt_key=your_jwt_secret
+CLIENT_URL=http://localhost:5173
 ```
 
-Start the development server:
+Run the backend:
+
 ```bash
 npm run dev
 ```
 
-Or start in production mode:
+Run backend tests:
+
 ```bash
-npm start
+npm test
 ```
 
-### Frontend Setup
+## Frontend Setup
 
 ```bash
 cd frontend
 npm install
-```
-
-Start the development server:
-```bash
 npm run dev
 ```
 
-Build for production:
+Build and test:
+
 ```bash
 npm run build
-```
-
-## 📦 Project Structure
-
-```
-TaskManagementApp/
-├── backend/
-│   ├── config/          # Configuration files
-│   ├── controllers/      # Route controllers
-│   ├── middleware/       # Custom middleware (auth, error handling, etc.)
-│   ├── models/           # MongoDB models
-│   ├── routes/           # API routes
-│   ├── validators/       # Input validation logic
-│   ├── tests/            # Unit and integration tests
-│   ├── app.js           # Express app configuration
-│   ├── server.js        # Server entry point
-│   └── package.json     # Dependencies and scripts
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/  # React components
-│   │   ├── pages/       # Page components
-│   │   ├── services/    # API services
-│   │   ├── App.jsx      # Main App component
-│   │   └── main.jsx     # React entry point
-│   ├── public/          # Static assets
-│   ├── index.html       # HTML template
-│   ├── vite.config.js   # Vite configuration
-│   ├── eslint.config.js # ESLint configuration
-│   └── package.json     # Dependencies and scripts
-│
-├── task_manager_full_architecture.svg  # System architecture diagram
-└── README.md            # This file
-```
-
-## 🔌 API Endpoints
-
-### Authentication Routes (`/auth`)
-- `POST /auth/register` - Register a new user
-- `POST /auth/login` - Login user
-
-### Task Routes (`/tasks`)
-- `GET /tasks` - Get all tasks
-- `GET /tasks/:id` - Get a specific task
-- `POST /tasks` - Create a new task
-- `PUT /tasks/:id` - Update a task
-- `DELETE /tasks/:id` - Delete a task
-
-## 🧪 Testing
-
-### Backend
-```bash
-cd backend
 npm test
 ```
 
-### Frontend
-```bash
-cd frontend
-npm test
-```
+## API Routes
 
-## 📝 Scripts
+Authentication:
 
-### Backend Scripts
-- `node server.js` Starts the Backend 
-- `npm test` - Run test suite
+- `POST /auth/register`
+- `POST /auth/login`
 
-### Frontend Scripts
-- `npm run dev` - Start development server
-- `npm test` - Run test suite
+Tasks:
 
-## 🔐 Security Features
+- `POST /tasks`
+- `GET /tasks`
+- `GET /tasks/shared`
+- `GET /tasks/:id`
+- `PUT /tasks/:id`
+- `DELETE /tasks/:id`
 
-- Password hashing with bcryptjs
-- JWT-based authentication
-- CORS protection
-- Helmet security headers
-- Input validation and sanitization
-- Error handling middleware
+Collaboration:
 
-## 🎨 UI/UX
+- `PUT /tasks/:id/share`
+- `GET /tasks/:id/collaborators`
+- `PUT /tasks/:id/share/:userId`
+- `DELETE /tasks/:id/share/:userId`
 
-The frontend uses:
-- **Responsive Design** - Mobile-first approach with Tailwind CSS
-- **React Router** - Smooth client-side navigation
-- **Axios** - Efficient API communication with interceptors
-- `**Cross Platform**` - Optimized for both Mobile and Laptop
+Notifications:
 
-## 📚 Tech Stack Summary
+- `GET /notifications`
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 19, Vite, Tailwind CSS, Axios |
-| Backend | Express.js, Node.js |
-| Database | MongoDB, Mongoose |
-| Authentication | JWT, bcryptjs |
-| Testing | Jest, Vitest, Supertest |
-| Code Quality | ESLint |
-| Security | Helmet, CORS, express-validator |
+Analytics:
 
-## 🤝 Contributing
+- `GET /analytics/overview`
+- `GET /analytics/trends`
 
-This is a project for the Developer Hubs internship. Feel free to:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## Submission Checklist
 
-## 📄 License
+- Public GitHub repository
+- Live deployed URL
+- Video walkthrough of the deployed app
+- Screenshots of dashboard, analytics, sharing, notifications, dark mode, and attachments
 
-This project is licensed under the ISC License - see the LICENSE file for details.
+## Author
 
-## 👤 Author
-
-Created by [Sameer Ahmed](https://github.com/SameerAhmed90189)
-
-## 📞 Support
-
-For issues and questions, please open an issue on the GitHub repository.
-
----
-
-**Happy Task Managing! 🎯**
+Sameer Ahmed

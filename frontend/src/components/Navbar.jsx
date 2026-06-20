@@ -1,4 +1,5 @@
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar({
@@ -6,6 +7,8 @@ function Navbar({
   setSearch,
   handleLogout,
   setFilter,
+  darkMode,
+  setDarkMode,
 }) {
   return(
   <nav className="navbar">
@@ -23,6 +26,18 @@ function Navbar({
       setSearch={setSearch}
       setFilter={setFilter}
     />
+
+    <Link className="navLink" to="/analytics">
+      Analytics
+    </Link>
+
+    <button
+      className="themeBtn"
+      type="button"
+      onClick={() => setDarkMode(!darkMode)}
+    >
+      {darkMode ? "Light" : "Dark"}
+    </button>
 
     <button
       className="logoutBtn"

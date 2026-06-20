@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import ProgressBar from "../components/ProgressBar";
 import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
+import NotificationSidebar from "../components/NotificationSidebar";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
@@ -21,6 +22,9 @@ function Dashboard() {
 
   const [filter, setFilter] =
     useState("All");
+
+  const [darkMode, setDarkMode] =
+    useState(false);
 
  
 
@@ -148,13 +152,15 @@ function Dashboard() {
     ).length;
 
  return (
-  <div className="dashboard-container">
+  <div className={`dashboard-container ${darkMode ? "dark-mode" : ""}`}>
 
     <Navbar
       search={search}
       setSearch={setSearch}
       handleLogout={handleLogout}
       setFilter={setFilter}
+      darkMode={darkMode}
+      setDarkMode={setDarkMode}
     />
 
     <div className="dashboard-content">
@@ -184,6 +190,7 @@ function Dashboard() {
             editingTask={editingTask}
             onSubmit={handleSubmit}
           />
+          <NotificationSidebar />
         </div>
 
       </div>

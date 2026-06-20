@@ -9,7 +9,23 @@ const userschema=new mongoose.Schema({
         type:String,
         required:true
     
-}
+    },
+    sharedTasksHistory:[
+        {
+            taskId:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"Task"
+            },
+            sharedAt:{
+                type:Date,
+                default:Date.now
+            },
+            sharedBy:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"User"
+            }
+        }
+    ]
  }, 
 {
      timestamps:true

@@ -4,7 +4,7 @@
   border-radius: 12px;
   padding: 12px 18px;
   margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .taskInfo {
@@ -30,12 +30,16 @@
   font-size: 0.85rem;
   color: #64748b;
   line-height: 1.4;
-
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-
   overflow: hidden;
+}
+
+.due-date {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 4px;
 }
 
 .status {
@@ -63,25 +67,35 @@
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+}
+
+.editBtn,
+.deleteBtn,
+.detailsBtn,
+.shareBtn {
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .editBtn {
   background: #2563eb;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
 .deleteBtn {
   background: #ef4444;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
+}
+
+.detailsBtn {
+  background: #475569;
+}
+
+.shareBtn {
+  background: #16a34a;
 }
 
 .editBtn:hover {
@@ -90,6 +104,14 @@
 
 .deleteBtn:hover {
   background: #dc2626;
+}
+
+.detailsBtn:hover {
+  background: #334155;
+}
+
+.shareBtn:hover {
+  background: #15803d;
 }
 
 @media (max-width: 768px) {
@@ -103,12 +125,9 @@
   }
 
   .editBtn,
-  .deleteBtn {
+  .deleteBtn,
+  .detailsBtn,
+  .shareBtn {
     flex: 1;
   }
-}
-.due-date {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin-top: 4px;
 }
