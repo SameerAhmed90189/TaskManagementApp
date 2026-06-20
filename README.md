@@ -120,13 +120,6 @@ Analytics:
 - `GET /analytics/overview`
 - `GET /analytics/trends`
 
-## Submission Checklist
-
-- Public GitHub repository
-- Live deployed URL
-- Video walkthrough of the deployed app
-- Screenshots of dashboard, analytics, sharing, notifications, dark mode, and attachments
-
 ## Author
 
 Sameer Ahmed
